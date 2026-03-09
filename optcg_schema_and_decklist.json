@@ -1,21 +1,19 @@
 {
   "_meta": {
-    "schema_version": "1.1.0",
+    "schema_version": "1.0.0",
     "last_updated": "2026-03-08",
     "source": "Official OPTCG Comprehensive Rules v1.2.0 (2026-01-16)",
     "notes": [
       "Schema designed against full OPTCG rules universe, not just cards in this decklist.",
-      "All fields are optional unless marked REQUIRED â€” absent fields mean 'not applicable' for that card_category.",
+      "All fields are optional unless marked REQUIRED — absent fields mean 'not applicable' for that card_category.",
       "effect_parsed keys map to official timing keywords from the Comprehensive Rules.",
       "counter_value (Character printed counter) is distinct from effect_parsed.counter (Event timing keyword).",
-      "Expandable: add new fields without breaking existing records â€” JSON allows sparse records."
+      "Expandable: add new fields without breaking existing records — JSON allows sparse records."
     ],
     "verification_levels": {
       "L2_pulled": "Data retrieved from at least 1 source, not yet cross-referenced or manually confirmed.",
       "L3_verified": "Cross-referenced against 2+ independent sources AND manually confirmed by player.",
-      "flagged": "Data present but suspected incorrect â€” needs review before use.",
-      "flagged_conflict": "Conflict between sources — needs resolution via hierarchy above.",
-      "flagged_errata": "Confirmed errata — current text differs from original print. See card_versions[] for full history."
+      "flagged": "Data present but suspected incorrect — needs review before use."
     },
     "effect_timing_keywords": [
       "[On Play]",
@@ -37,56 +35,19 @@
       "[When K.O.]",
       "[DON!! x#]"
     ],
-    "card_categories": [
-      "Leader",
-      "Character",
-      "Event",
-      "Stage",
-      "DON!!"
-    ],
-    "colors": [
-      "Red",
-      "Green",
-      "Blue",
-      "Purple",
-      "Black",
-      "Yellow"
-    ],
-    "attributes": [
-      "Slash",
-      "Strike",
-      "Ranged",
-      "Special",
-      "Wisdom",
-      "?"
-    ],
+    "card_categories": ["Leader", "Character", "Event", "Stage", "DON!!"],
+    "colors": ["Red", "Green", "Blue", "Purple", "Black", "Yellow"],
+    "attributes": ["Slash", "Strike", "Ranged", "Special", "Wisdom", "?"],
     "field_applicability": {
       "life": "Leader only",
       "power": "Leader and Character only",
-      "cost": "Character, Event, Stage only â€” NOT Leader",
-      "counter_value": "Character only â€” printed +N000 counter symbol",
+      "cost": "Character, Event, Stage only — NOT Leader",
+      "counter_value": "Character only — printed +N000 counter symbol",
       "attribute": "Leader and Character only",
-      "effect_parsed.counter": "Event only â€” [Counter] timing keyword, distinct from counter_value"
-    },
-    "changelog": [
-      {
-        "version": "1.0.0",
-        "date": "2026-03-08",
-        "notes": "Initial schema. 20 cards from Blue/Purple Sanji decklist."
-      },
-      {
-        "version": "1.1.0",
-        "date": "2026-03-08",
-        "notes": "Added errata versioning. card_versions[] array tracks full text history with effective dates. Added conflict_source and errata_confirmed flags to data resolution fields."
-      }
-    ],
-    "conflict_resolution_hierarchy": [
-      "1. en.onepiece-cardgame.com — current legal English text, always wins",
-      "2. onepiece.limitlesstcg.com — usually current, strong secondary",
-      "3. optcgapi.com — bulk data, may lag behind errata",
-      "4. Manual pull — single source, lowest confidence"
-    ]
+      "effect_parsed.counter": "Event only — [Counter] timing keyword, distinct from counter_value"
+    }
   },
+
   "_schema_reference": {
     "id": "REQUIRED. Card number e.g. OP12-041",
     "name": "REQUIRED. Card name",
@@ -108,7 +69,7 @@
       "when_attacking": "Effect triggered when this card attacks.",
       "on_block": "Effect triggered when this card blocks.",
       "activate_main": "Effect the player can choose to activate during Main Phase.",
-      "blocker": "Boolean or text. Keyword â€” card can redirect attacks to itself.",
+      "blocker": "Boolean or text. Keyword — card can redirect attacks to itself.",
       "counter": "Event only. Effect usable during Counter Step of a battle.",
       "trigger": "Effect activatable when card comes from Life zone.",
       "rush": "Boolean. Character can attack the turn it is played.",
@@ -129,27 +90,17 @@
     "decklist_qty": "Integer. Number of copies in player's decklist (1-4).",
     "data_status": "L2_pulled | L3_verified | flagged",
     "data_sources": "Array of source names used to populate this record.",
-    "notes": "Free-text. Flags, observations, things to verify.",
-    "card_versions": "Array of versioned card text records. Each entry is a snapshot of the card at a point in time. Most cards will have 1 entry. Errata'd cards will have 2+. Structure: [{ version: int, effective_date: 'YYYY-MM-DD', source: str, effect_text: str, effect_parsed: {}, notes: str }]",
-    "errata_confirmed": "Boolean. True if card has a confirmed official errata on record.",
-    "conflict_source": "String. Which sources disagree and on what field. Populated automatically by cross_reference.py.",
-    "legal_text_as_of": "Date string. When the current effect_text was confirmed as legal. Set when L3_verified via en.onepiece-cardgame.com."
+    "notes": "Free-text. Flags, observations, things to verify."
   },
+
   "cards": [
     {
       "id": "OP12-041",
       "name": "Sanji",
       "card_category": "Leader",
-      "color": [
-        "Blue",
-        "Purple"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
-      "attribute": [
-        "Strike"
-      ],
+      "color": ["Blue", "Purple"],
+      "type": ["Straw Hat Crew"],
+      "attribute": ["Strike"],
       "life": 4,
       "power": 5000,
       "set_id": "OP12",
@@ -166,43 +117,16 @@
       "in_decklist": true,
       "decklist_qty": 1,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Core leader. DON!! recovery engine. Activate: Main lets leader use events for free â€” key to understanding deck's tempo engine.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[Activate: Main] [Once Per Turn] DON!! -1: Activate up to 1 [Straw Hat Crew] type Event card with an original cost of 3 or less from your hand without paying its cost. [When Attacking] If your DON!! count is the same or less than your opponent's, add 1 DON!! card from your DON!! deck and rest it.",
-          "effect_parsed": {
-            "activate_main": "DON!! -1: Activate up to 1 {Straw Hat Crew} Event with original cost 3 or less from hand without paying cost.",
-            "when_attacking": "If your DON!! count <= opponent's, add 1 DON!! from DON!! deck, rest it.",
-            "once_per_turn": true,
-            "condition": "DON!! count <= opponent's",
-            "threshold": false
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Core leader. DON!! recovery engine. Activate: Main lets leader use events for free — key to understanding deck's tempo engine."
     },
     {
       "id": "OP13-043",
       "name": "Otama",
       "card_category": "Character",
-      "color": [
-        "Blue"
-      ],
-      "type": [
-        "Land of Wano"
-      ],
-      "attribute": [
-        "Special"
-      ],
+      "color": ["Blue"],
+      "type": ["Land of Wano"],
+      "attribute": ["Special"],
       "cost": 1,
       "power": 0,
       "counter_value": 2000,
@@ -218,41 +142,16 @@
       "in_decklist": true,
       "decklist_qty": 3,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Late-game draw engine. 0 power means no board presence â€” purely hand quality. Threshold at 3 life.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[On Play] If you have 3 or less Life cards, draw 2 cards and trash 1 card from your hand.",
-          "effect_parsed": {
-            "on_play": "Draw 2, trash 1.",
-            "condition": "3 or less Life cards",
-            "threshold": true
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Late-game draw engine. 0 power means no board presence — purely hand quality. Threshold at 3 life."
     },
     {
       "id": "OP06-047",
       "name": "Charlotte Pudding",
       "card_category": "Character",
-      "color": [
-        "Blue"
-      ],
-      "type": [
-        "Big Mom Pirates"
-      ],
-      "attribute": [
-        "Wisdom"
-      ],
+      "color": ["Blue"],
+      "type": ["Big Mom Pirates"],
+      "attribute": ["Wisdom"],
       "cost": 4,
       "power": 4000,
       "counter_value": 1000,
@@ -268,41 +167,16 @@
       "in_decklist": true,
       "decklist_qty": 1,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Hand disruption. Opponent loses hand configuration â€” destroys set-up plays and counter holdings. Single copy suggests situational use.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[On Play] Your opponent returns all cards in their hand to their deck and shuffles it. Then, your opponent draws 5 cards.",
-          "effect_parsed": {
-            "on_play": "Opponent shuffles hand into deck, then redraws 5.",
-            "condition": null,
-            "threshold": false
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Hand disruption. Opponent loses hand configuration — destroys set-up plays and counter holdings. Single copy suggests situational use."
     },
     {
       "id": "OP12-070",
       "name": "Sanji",
       "card_category": "Character",
-      "color": [
-        "Blue"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
-      "attribute": [
-        "Strike"
-      ],
+      "color": ["Blue"],
+      "type": ["Straw Hat Crew"],
+      "attribute": ["Strike"],
       "cost": 3,
       "power": 5000,
       "counter_value": null,
@@ -320,43 +194,16 @@
       "in_decklist": true,
       "decklist_qty": 4,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Core engine. Power scales with trash count. Removal protection is also DON!! recovery â€” two functions in one. No counter means meant to stay on board.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "This Character gains +1000 power for every 5 Event cards in your trash. If this Character would be removed from the field by your opponent's effect, you may instead return 1 DON!! card from your cost area to your DON!! deck.",
-          "effect_parsed": {
-            "your_turn": null,
-            "condition": "5+ events in trash per +1000 power stack",
-            "threshold": true,
-            "on_removal": "Instead of being removed by opponent's effect, return 1 DON!! to DON!! deck.",
-            "power_scaling": "+1000 per 5 events in trash"
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Core engine. Power scales with trash count. Removal protection is also DON!! recovery — two functions in one. No counter means meant to stay on board."
     },
     {
       "id": "ST18-001",
       "name": "Uso-Hachi",
       "card_category": "Character",
-      "color": [
-        "Purple"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
-      "attribute": [
-        "Ranged"
-      ],
+      "color": ["Purple"],
+      "type": ["Straw Hat Crew"],
+      "attribute": ["Ranged"],
       "cost": 3,
       "power": 3000,
       "counter_value": 2000,
@@ -372,42 +219,16 @@
       "in_decklist": true,
       "decklist_qty": 1,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Late-game board control. 8 DON!! threshold is very late â€” turn 6+. Single copy suggests tech card. Rests a target for a free attack.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[On Play] If you have 8 or more DON!! cards on your field, rest up to 1 of your opponent's Characters with a cost of 5 or less.",
-          "effect_parsed": {
-            "on_play": "Rest 1 opponent's Character with cost 5 or less.",
-            "condition": "8+ DON!! cards on field",
-            "threshold": true
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Late-game board control. 8 DON!! threshold is very late — turn 6+. Single copy suggests tech card. Rests a target for a free attack."
     },
     {
       "id": "OP12-063",
       "name": "Vinsmoke Reiju",
       "card_category": "Character",
-      "color": [
-        "Blue"
-      ],
-      "type": [
-        "Straw Hat Crew",
-        "Vinsmoke Family"
-      ],
-      "attribute": [
-        "Special"
-      ],
+      "color": ["Blue"],
+      "type": ["Straw Hat Crew", "Vinsmoke Family"],
+      "attribute": ["Special"],
       "cost": 4,
       "power": 5000,
       "counter_value": 1000,
@@ -416,7 +237,7 @@
       "rarity": "UC",
       "effect_text": "If there are 4 or more Event cards in your trash: This Character gains +2000 power, gains a cost of +5, and gains [Blocker].",
       "effect_parsed": {
-        "blocker": "Gained conditionally â€” only when 4+ events in trash.",
+        "blocker": "Gained conditionally — only when 4+ events in trash.",
         "power_scaling": "+2000 when condition met (becomes 7000)",
         "cost_increase": "+5 to own cost when condition met (becomes 9)",
         "condition": "4+ events in trash",
@@ -425,44 +246,16 @@
       "in_decklist": true,
       "decklist_qty": 2,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Pre-threshold: 4-cost 5000 with 1000 counter â€” below rate. Post-threshold: 4-cost 7000 Blocker â€” above rate. +5 cost effect raises her effective KO cost for opponent.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "If there are 4 or more Event cards in your trash: This Character gains +2000 power, gains a cost of +5, and gains [Blocker].",
-          "effect_parsed": {
-            "blocker": "Gained conditionally â€” only when 4+ events in trash.",
-            "power_scaling": "+2000 when condition met (becomes 7000)",
-            "cost_increase": "+5 to own cost when condition met (becomes 9)",
-            "condition": "4+ events in trash",
-            "threshold": true
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Pre-threshold: 4-cost 5000 with 1000 counter — below rate. Post-threshold: 4-cost 7000 Blocker — above rate. +5 cost effect raises her effective KO cost for opponent."
     },
     {
       "id": "EB03-031",
       "name": "Vinsmoke Reiju",
       "card_category": "Character",
-      "color": [
-        "Purple"
-      ],
-      "type": [
-        "Straw Hat Crew",
-        "Vinsmoke Family"
-      ],
-      "attribute": [
-        "Special"
-      ],
+      "color": ["Purple"],
+      "type": ["Straw Hat Crew", "Vinsmoke Family"],
+      "attribute": ["Special"],
       "cost": 5,
       "power": 5000,
       "counter_value": 1000,
@@ -481,56 +274,23 @@
       "in_decklist": true,
       "decklist_qty": 4,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Most flexible engine card. Reactivates trash events. [Your Turn] means usable every turn she's on board, not just on play. Covers cost 7 â€” hits Gravity Blade Raging Tiger.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[On Play] / [Your Turn] DON!! -1: If your Leader is [Sanji], activate the [Main] effect of up to 1 Event card in your trash with an original cost of 7 or less.",
-          "effect_parsed": {
-            "on_play": "DON!! -1: Reactivate [Main] effect of 1 Event in trash (original cost 7 or less).",
-            "your_turn": "DON!! -1: Reactivate [Main] effect of 1 Event in trash (original cost 7 or less).",
-            "activate_main": null,
-            "condition": "Leader must be [Sanji]",
-            "don_attach": null,
-            "threshold": false
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Most flexible engine card. Reactivates trash events. [Your Turn] means usable every turn she's on board, not just on play. Covers cost 7 — hits Gravity Blade Raging Tiger."
     },
     {
       "id": "EB04-038",
       "name": "Rosinante & Law",
       "card_category": "Character",
-      "color": [
-        "Purple"
-      ],
-      "type": [
-        "Donquixote Pirates",
-        "Heart Pirates"
-      ],
-      "attribute": [
-        "Special",
-        "Wisdom"
-      ],
+      "color": ["Purple"],
+      "type": ["Donquixote Pirates", "Heart Pirates"],
+      "attribute": ["Special", "Wisdom"],
       "cost": 6,
       "power": 8000,
       "counter_value": null,
       "set_id": "EB04",
       "set_name": "The Azure Sea's Seven",
       "rarity": "SR",
-      "also_named": [
-        "Trafalgar Law",
-        "Donquixote Rosinante"
-      ],
+      "also_named": ["Trafalgar Law", "Donquixote Rosinante"],
       "effect_text": "Also treated as a card named [Trafalgar Law] and [Donquixote Rosinante]. [Blocker] [On Play] If your DON!! count is the same or less than your opponent's, draw 1 card and add 1 DON!! card from your DON!! deck as active.",
       "effect_parsed": {
         "blocker": true,
@@ -541,42 +301,16 @@
       "in_decklist": true,
       "decklist_qty": 2,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "8000 Blocker with DON!! recovery and draw on condition. Dual name means it may satisfy name-based conditions for both Law and Rosinante cards.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "Also treated as a card named [Trafalgar Law] and [Donquixote Rosinante]. [Blocker] [On Play] If your DON!! count is the same or less than your opponent's, draw 1 card and add 1 DON!! card from your DON!! deck as active.",
-          "effect_parsed": {
-            "blocker": true,
-            "on_play": "If your DON!! <= opponent's: draw 1, add 1 DON!! from deck as active.",
-            "condition": "DON!! count <= opponent's",
-            "threshold": false
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "8000 Blocker with DON!! recovery and draw on condition. Dual name means it may satisfy name-based conditions for both Law and Rosinante cards."
     },
     {
       "id": "OP07-064",
       "name": "Sanji",
       "card_category": "Character",
-      "color": [
-        "Purple"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
-      "attribute": [
-        "Strike"
-      ],
+      "color": ["Purple"],
+      "type": ["Straw Hat Crew"],
+      "attribute": ["Strike"],
       "cost": 6,
       "power": 6000,
       "counter_value": 2000,
@@ -593,39 +327,15 @@
       "in_decklist": true,
       "decklist_qty": 4,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Manufactured tempo card. Leader recovers DON!! intentionally to trigger this 3-cost condition. 6000 Blocker for 3 DON!! is above rate. High counter value (2000) makes it useful even in hand.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "If your DON!! count is 2 or more less than your opponent's, this card's cost is reduced by 3 in your hand. [Blocker]",
-          "effect_parsed": {
-            "blocker": true,
-            "cost_reduction": "-3 cost in hand when condition met (becomes 3-cost)",
-            "condition": "Your DON!! count is 2+ less than opponent's",
-            "threshold": true
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Manufactured tempo card. Leader recovers DON!! intentionally to trigger this 3-cost condition. 6000 Blocker for 3 DON!! is above rate. High counter value (2000) makes it useful even in hand."
     },
     {
       "id": "OP12-059",
       "name": "Concasser",
       "card_category": "Event",
-      "color": [
-        "Blue"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
+      "color": ["Blue"],
+      "type": ["Straw Hat Crew"],
       "cost": 1,
       "set_id": "OP12",
       "set_name": "Legacy of the Master",
@@ -640,39 +350,15 @@
       "in_decklist": true,
       "decklist_qty": 3,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Dual purpose. Main: cantrip that also puts event in trash (advances threshold). Counter: conditional +4000 to Leader â€” huge defensive swing. Going to trash on main use advances threshold count.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[Main] If your Leader is [Sanji], draw 1 card. [Counter] If there are 4 or more Event cards in your trash: Your Leader gains +4000 power during this battle.",
-          "effect_parsed": {
-            "activate_main": "If leader is [Sanji], draw 1.",
-            "counter": "If 4+ events in trash: Leader gains +4000 power this battle.",
-            "condition": "4+ events in trash (for counter effect)",
-            "threshold": true
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Dual purpose. Main: cantrip that also puts event in trash (advances threshold). Counter: conditional +4000 to Leader — huge defensive swing. Going to trash on main use advances threshold count."
     },
     {
       "id": "OP09-078",
       "name": "Gum-Gum Giant",
       "card_category": "Event",
-      "color": [
-        "Purple"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
+      "color": ["Purple"],
+      "type": ["Straw Hat Crew"],
       "cost": 1,
       "set_id": "OP09",
       "set_name": "Emperors in the New World",
@@ -687,39 +373,15 @@
       "in_decklist": true,
       "decklist_qty": 4,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Counter that replaces itself via draw 2. Net cost: 1 card (trash 1, draw 2, net +1) + DON!! -2. Powerful but DON!! intensive as counter. Also goes to trash â€” advances event count.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[Counter] DON!! -2, trash 1 card from your hand: If your Leader has the {Straw Hat Crew} type, up to 1 of your Leader or Character cards gains +4000 power during this battle, and draw 2 cards.",
-          "effect_parsed": {
-            "counter": "DON!! -2, trash 1 from hand: If leader has {Straw Hat Crew}: Leader/Character +4000 this battle, draw 2.",
-            "condition": "Leader has {Straw Hat Crew} type",
-            "threshold": false,
-            "once_per_turn": false
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Counter that replaces itself via draw 2. Net cost: 1 card (trash 1, draw 2, net +1) + DON!! -2. Powerful but DON!! intensive as counter. Also goes to trash — advances event count."
     },
     {
       "id": "EB04-029",
       "name": "I Heard the Sound...of a Lady's Teardrops Falling",
       "card_category": "Event",
-      "color": [
-        "Blue"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
+      "color": ["Blue"],
+      "type": ["Straw Hat Crew"],
       "cost": 1,
       "set_id": "EB04",
       "set_name": "The Azure Sea's Seven",
@@ -734,39 +396,15 @@
       "in_decklist": true,
       "decklist_qty": 4,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Tutor + counter. Main finds Sanji characters or events â€” fills both roles. Counter targets specifically [Sanji] named cards. Synergizes with OP12-070 and OP07-064.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[Main] If your Leader is [Sanji], look at the top 3 cards of your deck. Reveal up to 1 [Sanji] card or Event card and add it to your hand. Place the remaining cards at the bottom of your deck in any order. [Counter] Trash 1 card from your hand: Up to 1 of your [Sanji] cards gains +4000 power during this battle.",
-          "effect_parsed": {
-            "activate_main": "If leader is [Sanji]: look top 3, reveal 1 [Sanji] or Event, add to hand; rest on bottom.",
-            "counter": "Trash 1 from hand: 1 [Sanji] card gains +4000 this battle.",
-            "condition": "Leader must be [Sanji] (for Main effect)",
-            "threshold": false
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Tutor + counter. Main finds Sanji characters or events — fills both roles. Counter targets specifically [Sanji] named cards. Synergizes with OP12-070 and OP07-064."
     },
     {
       "id": "OP07-056",
       "name": "Slave Arrow",
       "card_category": "Event",
-      "color": [
-        "Blue"
-      ],
-      "type": [
-        "Big Mom Pirates"
-      ],
+      "color": ["Blue"],
+      "type": ["Big Mom Pirates"],
       "cost": 1,
       "set_id": "OP07",
       "set_name": "500 Years in the Future",
@@ -781,39 +419,15 @@
       "in_decklist": true,
       "decklist_qty": 1,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Counter bounces your own character to hand for +4000. Can reset OP12-070 Sanji's DON!! protection. Trigger is card quality filter. Single copy.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[Counter] Return 1 of your Characters with a cost of 2 or more to its owner's hand: Up to 1 of your Leader or Character cards gains +4000 power during this battle. [Trigger] Draw 2 cards, then place 2 cards from your hand at the bottom of your deck.",
-          "effect_parsed": {
-            "counter": "Return 1 of your Characters (cost 2+) to hand: Leader/Character +4000 this battle.",
-            "trigger": "Draw 2, then put 2 from hand on bottom of deck.",
-            "condition": null,
-            "threshold": false
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Counter bounces your own character to hand for +4000. Can reset OP12-070 Sanji's DON!! protection. Trigger is card quality filter. Single copy."
     },
     {
       "id": "OP12-079",
       "name": "Luffy Is the Man Who Will Be King of the Pirates!!!",
       "card_category": "Event",
-      "color": [
-        "Blue"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
+      "color": ["Blue"],
+      "type": ["Straw Hat Crew"],
       "cost": 0,
       "set_id": "OP12",
       "set_name": "Legacy of the Master",
@@ -827,38 +441,15 @@
       "in_decklist": true,
       "decklist_qty": 4,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "0-cost tutor. Free deck filter every turn via Leader's Activate: Main (costs DON!! -1 when used through leader). Goes to trash on use â€” counts toward event threshold.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[Main] If your Leader is [Sanji], look at the top 3 cards of your deck. Add up to 1 card to your hand and rest the remaining cards at the bottom of your deck.",
-          "effect_parsed": {
-            "activate_main": "If leader is [Sanji]: look top 3, add 1 to hand, rest on bottom.",
-            "condition": "Leader must be [Sanji]",
-            "threshold": false
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "0-cost tutor. Free deck filter every turn via Leader's Activate: Main (costs DON!! -1 when used through leader). Goes to trash on use — counts toward event threshold."
     },
     {
       "id": "EB04-041",
       "name": "Stealth Black",
       "card_category": "Event",
-      "color": [
-        "Purple"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
+      "color": ["Purple"],
+      "type": ["Straw Hat Crew"],
       "cost": 3,
       "set_id": "EB04",
       "set_name": "The Azure Sea's Seven",
@@ -873,39 +464,15 @@
       "in_decklist": true,
       "decklist_qty": 3,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Recursion engine. Can pull OP12-070 or OP07-064 from trash for free. Trigger is strong draw. 4 DON!! condition is early-mid game accessible.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[Main] If your Leader is [Sanji] and you have 4 or more DON!! cards on your field: Play up to 1 [Sanji] Character card with a cost of 6 or less from your hand or trash without paying its cost. [Trigger] Draw 2 cards, then trash 1 card from your hand.",
-          "effect_parsed": {
-            "activate_main": "If leader is [Sanji] and 4+ DON!! on field: play 1 [Sanji] Character (cost 6 or less) from hand or trash for free.",
-            "trigger": "Draw 2, trash 1.",
-            "condition": "Leader is [Sanji] AND 4+ DON!! on field",
-            "threshold": true
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Recursion engine. Can pull OP12-070 or OP07-064 from trash for free. Trigger is strong draw. 4 DON!! condition is early-mid game accessible."
     },
     {
       "id": "OP12-078",
       "name": "Brochette Blow",
       "card_category": "Event",
-      "color": [
-        "Purple"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
+      "color": ["Purple"],
+      "type": ["Straw Hat Crew"],
       "cost": 3,
       "set_id": "OP12",
       "set_name": "Legacy of the Master",
@@ -919,38 +486,15 @@
       "in_decklist": true,
       "decklist_qty": 1,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "DON!! parity condition matches Leader's own condition. Draw 1 + power reduction opens attack lanes. Single copy.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[Main] If your DON!! count is the same or less than your opponent's, draw 1 card. Then, give up to 1 of your opponent's Characters -3000 power during this turn.",
-          "effect_parsed": {
-            "activate_main": "If DON!! <= opponent's: draw 1. Then opponent's Character -3000 power this turn.",
-            "condition": "Your DON!! count <= opponent's",
-            "threshold": false
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "DON!! parity condition matches Leader's own condition. Draw 1 + power reduction opens attack lanes. Single copy."
     },
     {
       "id": "OP11-061",
       "name": "Gum-Gum Jet Culverin",
       "card_category": "Event",
-      "color": [
-        "Blue"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
+      "color": ["Blue"],
+      "type": ["Straw Hat Crew"],
       "cost": 3,
       "set_id": "OP11",
       "set_name": "A Fist of Divine Speed",
@@ -965,40 +509,15 @@
       "in_decklist": true,
       "decklist_qty": 1,
       "data_status": "L3_verified",
-      "data_sources": [
-        "onepiece.limitlesstcg.com",
-        "en.onepiece-cardgame.com"
-      ],
-      "notes": "Removal via deck bounce. Hits most mid-cost threats. Does not KO â€” opponent gets card back eventually. Single copy. First card to reach L3_verified status.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "2026-03-08",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[Main] Place up to 1 of your opponent's Characters with a base cost of 4 or less at the bottom of the owner's deck. [Trigger] Place up to 1 Character with a cost of 1 or less at the bottom of the owner's deck.",
-          "effect_parsed": {
-            "activate_main": "Place 1 opponent's Character (base cost 4 or less) at bottom of deck.",
-            "trigger": "Place 1 Character (cost 1 or less) at bottom of deck.",
-            "condition": null,
-            "threshold": false
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com", "en.onepiece-cardgame.com"],
+      "notes": "Removal via deck bounce. Hits most mid-cost threats. Does not KO — opponent gets card back eventually. Single copy. First card to reach L3_verified status."
     },
     {
       "id": "OP04-056",
       "name": "Gum-Gum Red Roc",
       "card_category": "Event",
-      "color": [
-        "Blue"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
+      "color": ["Blue"],
+      "type": ["Straw Hat Crew"],
       "cost": 6,
       "set_id": "OP04",
       "set_name": "Kingdoms of Intrigue",
@@ -1013,39 +532,15 @@
       "in_decklist": true,
       "decklist_qty": 2,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Unconditional removal. No cost restriction on Main effect â€” hits anything. 6 cost is expensive. Main mode activated through EB03-031 Reiju to bypass cost.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[Main] Place up to 1 of your opponent's Characters at the bottom of the owner's deck. [Trigger] Place up to 1 of your opponent's Characters with a cost of 4 or less at the bottom of the owner's deck.",
-          "effect_parsed": {
-            "activate_main": "Place 1 opponent's Character (any cost) at bottom of deck.",
-            "trigger": "Place 1 opponent's Character (cost 4 or less) at bottom of deck.",
-            "condition": null,
-            "threshold": false
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Unconditional removal. No cost restriction on Main effect — hits anything. 6 cost is expensive. Main mode activated through EB03-031 Reiju to bypass cost."
     },
     {
       "id": "OP06-058",
       "name": "Gravity Blade Raging Tiger",
       "card_category": "Event",
-      "color": [
-        "Blue"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
+      "color": ["Blue"],
+      "type": ["Straw Hat Crew"],
       "cost": 7,
       "set_id": "OP06",
       "set_name": "Wings of the Captain",
@@ -1060,39 +555,15 @@
       "in_decklist": true,
       "decklist_qty": 2,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Board wipe equivalent. 2-for-1 bounce at 7 cost. Normally expensive â€” EB03-031 Reiju recycles this from trash at DON!! -1. Hitting 2 characters is massive tempo swing.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[Main] Place up to 2 of your opponent's Characters with a cost of 6 or less at the bottom of the owner's deck. [Trigger] Place up to 1 of your opponent's Characters with a cost of 5 or less at the bottom of the owner's deck.",
-          "effect_parsed": {
-            "activate_main": "Place up to 2 opponent's Characters (cost 6 or less) at bottom of deck.",
-            "trigger": "Place 1 opponent's Character (cost 5 or less) at bottom of deck.",
-            "condition": null,
-            "threshold": false
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Board wipe equivalent. 2-for-1 bounce at 7 cost. Normally expensive — EB03-031 Reiju recycles this from trash at DON!! -1. Hitting 2 characters is massive tempo swing."
     },
     {
       "id": "OP12-060",
       "name": "Boeuf Burst",
       "card_category": "Event",
-      "color": [
-        "Blue"
-      ],
-      "type": [
-        "Straw Hat Crew"
-      ],
+      "color": ["Blue"],
+      "type": ["Straw Hat Crew"],
       "cost": 3,
       "set_id": "OP12",
       "set_name": "Legacy of the Master",
@@ -1107,28 +578,8 @@
       "in_decklist": true,
       "decklist_qty": 4,
       "data_status": "L2_pulled",
-      "data_sources": [
-        "onepiece.limitlesstcg.com"
-      ],
-      "notes": "Modal event â€” always relevant. Bounce mode is removal. Draw mode is hand refill. Sanji leader is Blue/Purple (multicolored) so condition always met. 4x backbone of the event suite.",
-      "errata_confirmed": false,
-      "conflict_source": "",
-      "legal_text_as_of": "",
-      "card_versions": [
-        {
-          "version": 1,
-          "effective_date": "",
-          "source": "onepiece.limitlesstcg.com",
-          "effect_text": "[Main] If your Leader is multicolored, choose 1: Return up to 1 of your opponent's Characters with a cost of 4 or less to its owner's hand. OR If you have 6 or less cards in your hand, draw 2 cards.",
-          "effect_parsed": {
-            "activate_main": "If leader is multicolored, choose: bounce 1 opponent's Character (cost 4 or less) to hand, OR draw 2 if you have 6 or less cards in hand.",
-            "condition": "Leader must be multicolored",
-            "threshold": false,
-            "modal": true
-          },
-          "notes": "Initial record. Effective date unconfirmed — set when source verified."
-        }
-      ]
+      "data_sources": ["onepiece.limitlesstcg.com"],
+      "notes": "Modal event — always relevant. Bounce mode is removal. Draw mode is hand refill. Sanji leader is Blue/Purple (multicolored) so condition always met. 4x backbone of the event suite."
     }
   ]
 }
